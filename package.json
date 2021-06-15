@@ -1,0 +1,44 @@
+{
+  "name": "Food_treat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "server": "node server.js",
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run development -- --watch",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "ckey": "^1.0.2",
+    "connect-mongo": "^3.2.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.1",
+    "moment": "^2.29.1",
+    "mongoose": "^5.11.16",
+    "notyf": "^3.9.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "socket.io": "^3.1.1",
+    "socket.io-client": "^3.1.1",
+    "validator": "^13.5.2"
+  },
+  "devDependencies": {
+    "laravel-mix": "^6.0.11",
+    "nodemon": "^2.0.7",
+    "postcss": "8.1",
+    "resolve-url-loader": "3.1.2",
+    "sass": "^1.32.7",
+    "sass-loader": "^11.0.1"
+  }
+}
