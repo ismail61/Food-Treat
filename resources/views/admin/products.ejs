@@ -1,0 +1,32 @@
+<div class="container mx-auto">
+    <div class="grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+        <% product.forEach((item)=>{ %>
+            <form action="/admin/update" method="post">
+                <div class="md:w-72 lg:w-80 sm:w-64 xs:w-44 text-center border_shadow shadow-2xl my-4">
+                    <input type="hidden" name="productId" value="<%= item._id %>">
+                    <div class="p-2">
+                        <img class="h-40 mb-4 mx-auto" src="/img/<%= item.image %>" alt="Pizza Pic">
+                        <input class="ml-4" type="file" name="image" value="<%= item.image %>">
+                    </div>
+                    <div>
+                        <h3 class="mb-3 font-bold">
+                            <input size="10px" type="text" class="px-2 border border-red-600" name="name" value="<%= item.name %>">
+                        </h3>
+                        <span class="p-2 rounded-full uppercase text-xs">
+                            <input size="6px" type="text" class="px-1 bg-gray-100" name="size"
+                             value="<%= item.size %>">
+                        </span>
+                        <div class="flex items-center justify-around mt-6 my-3">
+                            TK<input size="4px" type="text" class="px-1 -mx-10 border border-red-600" name="price" value="<%= item.price %>">                           
+                            <button type="submit" class="cart_add py-1 px-5 rounded-full">   
+                                <span>Update</span>
+                            </button>                                      
+                        </div>
+                    </div>
+                </div>
+            </form>
+       
+        <% }) %>
+
+    </div>
+</div>

@@ -1,0 +1,263 @@
+@import './variable';
+
+body {
+  font-family: 'Lato', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: $dark;
+}
+
+.cart_count {
+  background: $primary;
+  transition: $smooth;
+
+  &:hover {
+    background: $primary-hover;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+nav li:last-child a {
+  background: $primary;
+  transition: $smooth;
+
+  &:hover {
+    background: $primary-hover;
+  }
+}
+
+.text-color {
+  transition: $smooth;
+
+  &:hover {
+    color: $primary;
+  }
+
+}
+
+.top nav a,
+.dropDown {
+  transition: $smooth;
+
+  &:hover {
+    color: $primary;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+section.pic {
+  background: $secondary;
+}
+
+.text-xs {
+  background: $secondary;
+}
+
+.cart_add {
+  border: 2px solid $primary;
+  color: $primary;
+  transition: $smooth;
+
+  &:hover {
+    background: $primary-hover;
+    border-color: $pure;
+    color: $pure;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.border_shadow {
+  border: 2px solid $secondary;
+  transition: $smooth;
+
+  &:hover {
+    border-color: $pure;
+  }
+}
+
+.btn {
+  background: $primary;
+  transition: $smooth;
+
+  &:hover {
+    background: $primary-hover;
+  }
+}
+
+.total_price {
+  &:hover {
+    color: $primary;
+  }
+}
+
+//order Status
+
+.status ul li span {
+  position: relative;
+}
+
+.status ul li span:after {
+  position: absolute;
+  content: '';
+  border-radius: 50%;
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+  height: 10px;
+  padding: 2px;
+  width: 10px;
+  background-color: black;
+}
+
+.status ul li span:before {
+  position: absolute;
+  content: '';
+
+  margin-top: 20px;
+  left: -16px;
+  height: 83px;
+  width: 2px;
+  background-color: black;
+}
+
+
+.status ul li:nth-child(5) span:before {
+
+  height: 0px;
+  width: 0px;
+}
+
+.status ul li {
+  position: relative;
+}
+
+.status ul li:before {
+  position: absolute;
+  font-family: "Line Awesome Free";
+  font-weight: 600;
+  top: px;
+  left: -100px;
+  font-size: 50px;
+  color: inherit;
+}
+
+.status ul li:before {
+  position: absolute;
+  font-family: "Line Awesome Free";
+  font-weight: 600;
+  left: -100px;
+  font-size: 50px;
+  color: inherit;
+}
+
+.status ul li:nth-child(1):before {
+  content: '\f46c';
+}
+
+.status ul li:nth-child(2):before {
+  content: '\f560';
+}
+
+.status ul li:nth-child(3):before {
+  content: '\f818';
+}
+
+.status ul li:nth-child(4):before {
+  content: '\f0d1';
+}
+
+.status ul li:nth-child(5):before {
+  content: '\f582';
+}
+
+
+
+.status ul li.completed span:after {
+  background-color: gray;
+}
+
+.status ul li.completed {
+
+  color: gray;
+}
+
+.status ul li.completed span:before {
+
+
+  background-color: gray;
+}
+
+.status ul li.new span:after {
+  background-color: $primary;
+}
+
+.status ul li.new {
+
+  color: $primary;
+}
+
+.status ul li small {
+  float: right;
+  font-size: 12px;
+  color: black;
+  margin-top: 3px;
+}
+
+@media(max-width:600) {
+  .status ul li small {
+    margin-right: 100px;
+  }
+
+  .status ul li:before {
+    font-size: 34px;
+
+  }
+
+}
+
+@media(max-width:600px) {
+  .singleOrder {
+    max-width: 65%;
+
+  }
+
+}
+
+@media(max-width:470px) {
+  .orderIdInASingleOrder {
+    margin-top: 10px;
+  }
+
+}
+
+@media(max-width:768px) {
+  .singleOrder {
+    max-width: 75%;
+
+  }
+}
+
+@media(max-width:1060px) {
+  .container {
+    max-width: 90%;
+  }
+
+  .order table {
+    display: block;
+    overflow: auto;
+    /*  Sequences of whitespace will collapse into a single whitespace. 
+Text will never wrap to the next line. The text continues on
+ the same line until a <br> tag is encountered */
+    white-space: nowrap;
+  }
+
+
+}

@@ -1,0 +1,135 @@
+<div class="min-w-screen min-h-5000 bg-gray-50 flex items-center justify-center py-9">
+    <div class="bg-gray-100 text-gray-500 rounded-3xl lg:rounded-full md:rounded-full shadow-xl w-full overflow-hidden" style="max-width:900px">
+        <div class="md:flex w-full">
+            
+            <div class="w-full py-10 px-5 md:px-10">
+                <div class="text-center <% if(messages.error){%> mb-4 <%}else{%> mb-10 <%}%>">
+                    <h1 class="font-bold text-3xl text-gray-900">Add a product</h1>
+                    <p class="text-gray-700">Enter product information to upload a product</p>
+                </div>
+                <% if(messages.error){%>
+                    <div class="container alertbox">
+                        <div class="container bg-red-500 flex items-center text-white text-sm font-bold px-2 py-1 relative"
+                            role="alert">
+                            <svg class="fill-current w-4 h-4 mr-2"
+                                viewBox="0 0 20 20">
+                                <path
+                                    d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z" />
+                            </svg>
+                            <span>
+                                <%= messages.error %>
+                            </span>
+                            <span class="absolute top-0 bottom-0 right-0 px-2 py-1 closealertbutton">
+                                <svg class="fill-current h-4 w-4 text-white" role="button"
+                                     viewBox="0 0 20 20">
+                                    <path
+                                        d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                    <%}%>
+                        <form action="/admin/product" method="POST">
+                            <% if(user){ %>
+                                <input type="hidden" name="adminId" value="<%= user._id %>">
+                            <% } %>
+                            
+                            <div class="flex lg:mx-40 md:mx-40">
+                                <div class="w-full px-3 mb-5">
+                                    <label for="" class=" text-gray-700 text-sm font-semibold px-1">Name</label>
+                                    <div class="flex">
+                                        <div
+                                            class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                            <img src="https://img.icons8.com/material/24/fa314a/new.png"/>
+                                        </div>
+                                        <input type="text" name="name" 
+                                            class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                            placeholder="Product Name">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="flex lg:mx-40 md:mx-40">
+                                <div class="w-full px-3 mb-5">
+                                    <label for="" class="text-gray-700 text-sm font-semibold px-1">Size</label>
+                                    <div class="flex">
+                                        <div
+                                            class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                            <img src="https://img.icons8.com/material/24/fa314a/original-size--v1.png"/>
+                                        </div>
+                                        <input type="text" name="size"
+                                            class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                            placeholder="large/medium/small">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex lg:mx-40 md:mx-40">
+                                <div class="w-full px-3 mb-12">
+                                    <label for="" class="text-gray-700 text-sm font-semibold px-1">Price</label>
+                                    <div class="flex">
+                                        <div
+                                            class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                            <img src="https://img.icons8.com/material/24/fa314a/price-tag-euro.png"/>
+                                        </div>
+                                        <input type="number" name="price"
+                                            class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                            placeholder="Price">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex lg:mx-40 md:mx-40 -mt-8">
+                                <div class="w-full px-3 mb-12">
+                                    <label for="" class="text-gray-700 text-sm font-semibold px-1">Image</label>
+                                    <div class="flex">
+                                        <div
+                                            class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                            <img src="https://img.icons8.com/material/24/fa314a/image.png"/>
+                                        </div>
+                                        <input type="file" name="image"
+                                            class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                            >
+                                    </div>
+                                </div>
+                            </div>
+                          
+                            <div class="flex lg:mx-40 md:mx-40">
+                                <div class="w-full px-3 mb-5">
+                                    <button type="submit"
+                                        class="block w-full max-w-xs mx-auto btn text-white rounded-lg px-5 py-3 font-semibold">
+                                        INSERT PRODUCT
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- BUY ME A BEER AND HELP SUPPORT OPEN-SOURCE RESOURCES -->
+<!-- <div class="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
+    <div>
+        <a title="Buy me a beer" href="https://www.buymeacoffee.com/scottwindon" target="_blank" class="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
+            <img class="object-cover object-center w-full h-full rounded-full" src="https://i.pinimg.com/originals/60/fd/e8/60fde811b6be57094e0abc69d9c2622a.jpg"/>
+        </a>
+    </div>
+</div> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
+    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous">
+    </script>
+
+<script>
+    $(".closealertbutton").click(function (e) {
+        $(this).parent().parent().hide(200)
+    })
+    $("document").ready(function(){
+        setTimeout(function(){
+            $("div.alertbox").remove();
+        }, 5000 ); // 5 secs
+    });
+</script>
+<!-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
+<style>
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css")
+</style> -->
